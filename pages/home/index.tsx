@@ -47,7 +47,6 @@ const Home: NextPage = () => {
 				<meta name="theme-color" content="#ffffff" />
 				<title>Orbt</title>
 			</Head>
-			{/* NAV */}
 			<div className={style.main}>
 				<nav className={style.nav}>
 					<a className={style.link} href="#">
@@ -249,7 +248,7 @@ const Home: NextPage = () => {
 					type specimen book. It has survived not only five centuries,
 					but also the leap into electronic typesetting, remaining
 					essentially unchanged.
-					<div className={style.navf2}></div>
+					<div className={style.iconnv}></div>
 				</p>
 
 				<div className={style.icons}>
