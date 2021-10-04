@@ -3,6 +3,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import style from '../home/style.module.css'
+import res from '../home/responsive.module.css'
 /* Images */
 import profilePic from '/public/orbtwh.svg'
 import orbitSvg from '/public/orbita.svg'
@@ -13,6 +14,26 @@ import instagram from '/public/instagram.webp'
 import github from '/public/github.webp'
 
 const Home: NextPage = () => {
+	{
+		/* 
+	async function handleOnSubmit(e) {
+		e.preventDefault()
+
+		const formData = {}
+
+		Array.from(e.currentTarget.elements).forEach(field => {
+			if (!field.name) return
+			formData[field.name] = field.value
+		})
+
+		fetch('./api/mail', {
+			method: 'POST',
+			body: JSON.stringify(formData),
+		})
+		console.log(formData)
+	}*/
+	}
+
 	return (
 		<>
 			<Head>
@@ -97,8 +118,10 @@ const Home: NextPage = () => {
 				</div>
 			</div>
 			{/* Sobre */}
-			<div id="sobre" className={style.title}>
-				<h2>SOBRE NÓS</h2>
+			<div className={style.sobre_title}>
+				<div id="sobre" className={style.title}>
+					<h2>SOBRE NÓS</h2>
+				</div>
 			</div>
 
 			<div className={style.sobre}>
@@ -147,9 +170,12 @@ const Home: NextPage = () => {
 					</div>
 				</div>
 			</div>
+
 			{/* Trabalhos */}
-			<div className={style.title}>
-				<h2>trabalhos</h2>
+			<div className={style.works_title}>
+				<div className={style.title}>
+					<h2>trabalhos</h2>
+				</div>
 			</div>
 			<div className={style.gridw}>
 				<div className={style.work1}>
@@ -188,32 +214,30 @@ const Home: NextPage = () => {
 				<div className={style.contatof}>
 					<h2>Preencha o Formulário</h2>
 					<p>Preencha os campos abaixo para fazer um orçamento</p>
-					<form action="">
+					{/* <form method="POST" onSubmit={handleOnSubmit}> */}
+					<form>
 						<div className={style.gridcontato}>
 							<div className={style.inputst}>
 								<input
 									type="text"
-									name="nome"
-									placeholder="Nome Completo"
+									name="name"
+									placeholder="nome completo"
 								/>
 								<input
 									type="text"
 									name="email"
-									placeholder="E-mail"
+									placeholder="username@email.com"
 								/>
 							</div>
 							<div className={style.mensagem}>
 								<textarea
-									name="mensage"
-									id="mensagem"
-									placeholder="Escreva Sua Mensagem"
+									name="message"
+									placeholder="escreva sua mensagem..."
 								></textarea>
 							</div>
-							<input
-								className={style.buttonf}
-								type="submit"
-								name="enviar"
-							/>
+							<button className={style.buttonf} type="submit">
+								Enviar
+							</button>
 						</div>
 					</form>
 				</div>
@@ -240,18 +264,19 @@ const Home: NextPage = () => {
 						<a href="">Contato</a>
 					</li>
 				</div>
-				<p>
-					Lorem Ipsum is simply dummy text of the printing and
-					typesetting industry. Lorem Ipsum has been the industrys
-					standard dummy text ever since the 1500s, when an unknown
-					printer took a galley of type and scrambled it to make a
-					type specimen book. It has survived not only five centuries,
-					but also the leap into electronic typesetting, remaining
-					essentially unchanged.
-					<div className={style.iconnv}></div>
-				</p>
+				<div className={style.linel}>
+					<p>
+						Lorem Ipsum is simply dummy text of the printing and
+						typesetting industry. Lorem Ipsum has been the industrys
+						standard dummy text ever since the 1500s, when an
+						unknown printer took a galley of type and scrambled it
+						to make a type specimen book. It has survived not only
+						five centuries, but also the leap into electronic
+						typesetting, remaining essentially unchanged.
+					</p>
+				</div>
 
-				<div className={style.icons}>
+				<div className={style.redes}>
 					<a href="">
 						<Image
 							src={facebook}
@@ -277,12 +302,13 @@ const Home: NextPage = () => {
 						/>
 					</a>
 				</div>
-				<div className={style.copy}>
-					<span>
-						© 2021 Copyright | <a href="">Orbt</a>
-					</span>
-				</div>
 			</footer>
+			<div className={style.copy}>
+				<span>
+					Copyright © 2020, Todos direitos reservados
+					<a href=""> Orbt</a>
+				</span>
+			</div>
 		</>
 	)
 }

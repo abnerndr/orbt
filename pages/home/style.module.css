@@ -13,7 +13,7 @@
 
 .link {
 	padding: 17px;
-	margin-left: calc(-110px + -50px);
+	margin-left: 50px;
 }
 
 .ul {
@@ -536,6 +536,18 @@
 	margin-top: -20px;
 }
 
+.linel:after {
+	content: '';
+	display: inline-block;
+	height: 0.5em;
+	vertical-align: bottom;
+	width: 500px;
+	margin-left: 29%;
+	margin-top: -10px;
+	border-top: 1px solid rgba(209, 209, 209, 0.2);
+	margin-bottom: 10px;
+}
+
 .navf {
 	width: 720px;
 	margin-left: 30%;
@@ -572,16 +584,16 @@
 }
 
 /*icones*/
-.icons {
+.redes {
 	margin-left: 40%;
 }
 
-.icons a {
+.redes a {
 	margin-left: 30px;
 	margin-top: 10px;
 }
 
-.icons a:hover {
+.redes a:hover {
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
 	cursor: pointer;
@@ -589,32 +601,410 @@
 	border-bottom: solid 2px #f90000;
 }
 
-.iconnv:after {
-	content: '';
-	display: inline-block;
-	height: 0.5em;
-	vertical-align: bottom;
-	width: 500px;
-	margin-left: -20px;
-	margin-top: -10px;
-	border-top: 1px solid rgba(209, 209, 209, 0.2);
-}
-
 .copy {
 	width: 100%;
 	height: 30px;
 	background-color: rgb(17, 17, 17);
-	margin-top: 30px;
 }
 .copy span {
 	font-family: 'Poppins', sans-serif;
 	color: #fff;
 	text-align: center;
-	padding: 2px 41%;
+	margin-left: 35.5%;
 }
 .copy span a {
 	color: #f84444;
 }
 .copy span a:hover {
 	color: #ff2828;
+}
+
+@media (max-width: 720px) {
+	.nav {
+		width: 100%;
+		height: 70px;
+		display: flex;
+		position: fixed;
+		background-color: rgb(32, 32, 32);
+		z-index: 99;
+	}
+
+	.link {
+		padding: 17px;
+		margin-left: calc(-110px + -50px);
+	}
+
+	.ul {
+		list-style: none;
+		width: 100%;
+		text-align: right;
+	}
+
+	.ul li {
+		display: inline-block;
+		margin-right: 20px;
+		margin-top: 8px;
+	}
+
+	.ul li a {
+		color: rgb(255, 255, 255);
+		font-family: 'Poppins', sans-serif;
+	}
+
+	.ul li a:hover {
+		color: #f84444;
+	}
+
+	/*HOME*/
+
+	.imgorbta {
+		width: 0px;
+		opacity: 0;
+	}
+
+	.textbv {
+		color: rgb(255, 255, 255);
+		margin-top: calc(50% - 6rem);
+		margin-left: -100%;
+		text-align: center;
+	}
+
+	/*PLANOS*/
+
+	.planos {
+		width: 100%;
+		height: 1650px;
+	}
+
+	.plano1 {
+		margin-left: 100px;
+	}
+
+	.plano2 {
+		margin-left: calc(-100% + 100px);
+		margin-top: 700px;
+	}
+	/* TRABALHOS */
+
+	.work1 {
+		width: 96%;
+		margin-left: 22px;
+	}
+
+	.text1 {
+		width: 325px;
+		height: 260px;
+		text-align: center;
+	}
+
+	.text1 h3 {
+		margin-top: 50px;
+		font-size: 1.2rem;
+	}
+
+	.text1 p {
+		width: 60%;
+		margin-left: 20%;
+		font-size: 0.9rem;
+	}
+
+	.work2 {
+		width: 318px;
+		height: 260px;
+		margin-top: -5px;
+		margin-left: calc(100% + 8px);
+	}
+
+	.text2 {
+		width: 100%;
+		margin-left: 22px;
+		margin-top: -5px;
+		width: 338px;
+		height: 245px;
+	}
+
+	.text2 h3 {
+		margin-top: 50px;
+		font-size: 1.2rem;
+	}
+
+	.text2 p {
+		width: 60%;
+		margin-left: 20%;
+		font-size: 0.9rem;
+	}
+
+	/*CONTATO*/
+
+	.contatof {
+		margin-left: 34px;
+	}
+
+	.inputst input {
+		margin-left: 30px;
+		margin-top: -40px;
+		margin-right: 7px;
+	}
+
+	/*BLOCQUOTE*/
+
+	.blockquote {
+		width: 90%;
+	}
+
+	/*FOOTER*/
+
+	.footer p {
+		width: 550px;
+		margin-left: 10%;
+		margin-top: -20px;
+	}
+	.linel:after {
+		width: 500px;
+		margin-left: 15%;
+	}
+
+	.navf {
+		width: 550px;
+		margin-left: 17%;
+	}
+
+	/*icones*/
+	.redes {
+		margin-left: 36%;
+	}
+
+	.copy {
+		width: 100%;
+		height: 40px;
+		margin-top: 0px;
+	}
+	.copy span {
+		font-size: 1.3rem;
+		margin-left: 15%;
+	}
+}
+
+/*RESPONSIVE 720 (TABLET/IPAD)*/
+@media (max-width: 480px) {
+	.nav {
+		width: 240%;
+		height: 800px;
+		display: none;
+		display: flex;
+		position: relative;
+		background-color: rgb(32, 32, 32);
+	}
+
+	.link {
+		width: 90%;
+		position: absolute;
+	}
+
+	.ul {
+		list-style: inherit;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		margin-top: 120px;
+		margin-right: 10px;
+	}
+
+	.ul li {
+		display: block;
+		margin-right: 20px;
+		margin-top: 30px;
+		font-size: 3.3rem;
+		text-transform: uppercase;
+	}
+
+	.ul li::after {
+		content: '';
+		display: inline-block;
+		height: 0.5em;
+		vertical-align: bottom;
+		width: 700px;
+		border-top: 1px solid rgba(209, 209, 209, 0.2);
+	}
+
+	.ul li a {
+		color: rgb(255, 255, 255);
+		font-family: 'Poppins', sans-serif;
+	}
+
+	.ul li a:hover {
+		color: #f84444;
+	}
+
+	/*HOME*/
+
+	.home {
+		width: calc(100% + 140%);
+		margin-top: 50px;
+	}
+
+	.imgorbta {
+		width: 0px;
+		opacity: 0;
+	}
+
+	.textbv {
+		color: rgb(255, 255, 255);
+		margin-top: calc(50% - 6rem);
+		margin-left: -100%;
+		text-align: center;
+	}
+
+	/*SOBRE*/
+
+	.sobre {
+		width: 180%;
+		margin-left: 110px;
+	}
+	.sobre_title h2 {
+		width: 180%;
+		margin-left: 100px;
+	}
+
+	/*PLANOS*/
+
+	.planos {
+		width: 240%;
+		height: 1600px;
+	}
+
+	.plano1 {
+		margin-left: 180px;
+	}
+
+	.plano2 {
+		margin-left: calc(-100% + 180px);
+		margin-top: 700px;
+	}
+
+	/* TRABALHOS */
+
+	.gridw {
+		display: grid;
+		grid-template-columns: 50% 50%;
+	}
+
+	.gridw2 {
+		display: grid;
+		grid-template-columns: 50% 50%;
+	}
+	.works_title h2 {
+		width: 100%;
+		margin-left: 200px;
+	}
+
+	.work1 {
+		width: calc(100% + 240px);
+		margin-left: 22px;
+	}
+
+	.text1 {
+		width: 405px;
+		height: 323px;
+		margin-left: 143%;
+	}
+
+	.text1 h3 {
+		margin-top: 73px;
+	}
+
+	.text1 p {
+		font-size: 0.9rem;
+	}
+
+	.work2 {
+		width: 395px;
+		margin-top: -5px;
+		height: 240px;
+		margin-left: calc(240% + 140px);
+	}
+
+	.text2 {
+		width: 100%;
+		width: 425px;
+		height: 305px;
+	}
+
+	.text2 h3 {
+		margin-top: 73px;
+		font-size: 1.2rem;
+	}
+
+	.text2 p {
+		font-size: 0.9rem;
+	}
+
+	/*CONTATO*/
+	.contato {
+		width: 240%;
+	}
+
+	/*Contato form*/
+
+	.gridcontato {
+		display: grid;
+		grid-template-rows: 50% 50%;
+	}
+	.contatof {
+		margin-left: 43px;
+	}
+
+	.inputst input {
+		margin-left: 30px;
+		margin-top: -40px;
+		margin-right: 7px;
+	}
+
+	/*BLOCQUOTE*/
+
+	.blockquote {
+		width: 200%;
+		margin-left: 20%;
+	}
+
+	/*FOOTER*/
+
+	.footer {
+		width: 240%;
+	}
+
+	.footer p {
+		width: 550px;
+		text-align: center;
+		margin-left: 20%;
+		margin-top: -20px;
+	}
+	.linel:after {
+		margin-left: 25%;
+	}
+
+	.navf {
+		width: 550px;
+		margin-left: 25%;
+	}
+
+	.navf li a:hover {
+		color: #f84444;
+	}
+
+	/*icones*/
+	.redes {
+		margin-left: 40%;
+	}
+
+	.copy {
+		width: 240%;
+		height: 40px;
+		background-color: rgb(17, 17, 17);
+		margin-top: 0px;
+	}
+	.copy span {
+		font-size: 1.5rem;
+		margin-left: 20%;
+	}
 }
