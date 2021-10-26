@@ -1,9 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable @next/next/no-page-custom-font */
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import style from '../home/style.module.css'
-import res from '../home/responsive.module.css'
+import axios from 'axios'
 /* Images */
 import profilePic from '/public/orbtwh.svg'
 import orbitSvg from '/public/orbita.svg'
@@ -12,26 +15,42 @@ import work2 from '/public/work2.jpg'
 import facebook from '/public/facebook.webp'
 import instagram from '/public/instagram.webp'
 import github from '/public/github.webp'
+import { useState } from 'react'
+
+interface Data {
+	name: string
+	email: string
+	message: string
+}
 
 const Home: NextPage = () => {
-	{
-		/* 
-	async function handleOnSubmit(e) {
+	const [whatsapp, setWhatsapp] = useState(false)
+	const onClick = () => setWhatsapp(!whatsapp)
+
+	const [data, setData] = useState<Data>({
+		email: '',
+		message: '',
+		name: '',
+	})
+
+	const handleChange = (
+		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+	) => {
+		const { name, value } = e.target
+
+		setData(oldData => ({ ...oldData, [name]: value }))
+	}
+
+	const submitForm = (e: React.FormEvent) => {
 		e.preventDefault()
-
-		const formData = {}
-
-		Array.from(e.currentTarget.elements).forEach(field => {
-			if (!field.name) return
-			formData[field.name] = field.value
-		})
-
-		fetch('./api/mail', {
-			method: 'POST',
-			body: JSON.stringify(formData),
-		})
-		console.log(formData)
-	}*/
+		axios
+			.post('./api/contact', data)
+			.then(() => {
+				return console.log('Thank you for contacting us!', data)
+			})
+			.catch(e => {
+				return console.log('Something bad happened', e.message)
+			})
 	}
 
 	return (
@@ -66,18 +85,28 @@ const Home: NextPage = () => {
 				/>
 				<meta name="msapplication-TileColor" content="#da532c" />
 				<meta name="theme-color" content="#ffffff" />
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1.0"
+				/>
+				<link
+					rel="stylesheet"
+					href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+					integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+				/>
 				<title>Orbt</title>
 			</Head>
 			<div className={style.main}>
+				{/* NAV */}
 				<nav className={style.nav}>
-					<a className={style.link} href="#">
+					<div className={style.link}>
 						<Image
 							src={profilePic}
 							alt="Logo"
-							height="70"
+							height="80"
 							width=""
 						/>
-					</a>
+					</div>
 					<ul className={style.ul}>
 						<li className={style.active}>
 							<a href="#home">Home</a>
@@ -125,20 +154,25 @@ const Home: NextPage = () => {
 			</div>
 
 			<div className={style.sobre}>
-				<p>
-					Lorem Ipsum is simply dummy text of the printing and
-					typesetting industry. Lorem Ipsum has been the industrys
-					standard dummy text ever since the 1500s, when an unknown
-					printer took a galley of type and scrambled it to make a
-					type specimen book. It has survived not only five centuries,
-					but also the leap into electronic typesetting, remaining
-					essentially unchanged. It was popularised in the 1960s with
-					the release of Letraset sheets containing Lorem Ipsum
-					passages, and more recently with desktop publishing software
-					like Aldus PageMaker including versions of Lorem Ipsum.
-				</p>
+				<div className={style.corpotxt}>
+					<p>
+						A orbt é uma empresa recem chegada no mercado da
+						tecnologia, que vem buscando trazer web sites e
+						aplicativos com um design simples, bonito e que retrate
+						a empresa e ao mesmo tempo um site completo, rápido e
+						responsivo, com o SEO configurado e tudo mais que você
+						possa ter direito. Trabalhamos para optimizar e melhorar
+						a experiência da empresa com as novidades, sempre
+						buscamos inovar e sempre manter nossos projetos
+						atualizados e com ótima funcionalidade e velocidade.
+						Além disso sempre buscamos ouvir nossos clientes e
+						trabalhar em conjunto para que o site fique com a cara
+						da empresa e que os clientes de tal tenham um
+						experiência fantástica.
+					</p>
+				</div>
 			</div>
-
+			{/* Planos */}
 			<div id="plano" className={style.planos}>
 				<div className={style.title}>
 					<h3>planos</h3>
@@ -184,28 +218,23 @@ const Home: NextPage = () => {
 				<div className={style.text1}>
 					<h3>Indesfer</h3>
 					<p>
+						É uma empresa regional que trabalha com corte e dobra de
+						chapas, é nosso cliente a mais de 1 ano e tem ótimos
+						resultado.
+					</p>
+				</div>
+				<div className={style.work2}>
+					<Image src={work2} alt="Work2" width="650" height="500" />
+				</div>
+				<div className={style.text2}>
+					<h3>Empresa 2</h3>
+					<p>
 						An example of where you can put an image of a project,
 						or anything else, along with a description.
 					</p>
 				</div>
-				<div className={style.gridw2}>
-					<div className={style.text2}>
-						<h3>Empresa 2</h3>
-						<p>
-							An example of where you can put an image of a
-							project, or anything else, along with a description.
-						</p>
-					</div>
-					<div className={style.work2}>
-						<Image
-							src={work2}
-							alt="Work2"
-							width="650"
-							height="500"
-						/>
-					</div>
-				</div>
 			</div>
+
 			{/* Contato */}
 			<div id="contato" className={style.contato}>
 				<div className={style.title}>
@@ -215,24 +244,37 @@ const Home: NextPage = () => {
 					<h2>Preencha o Formulário</h2>
 					<p>Preencha os campos abaixo para fazer um orçamento</p>
 					{/* <form method="POST" onSubmit={handleOnSubmit}> */}
-					<form>
+					<form onSubmit={submitForm}>
 						<div className={style.gridcontato}>
 							<div className={style.inputst}>
 								<input
 									type="text"
 									name="name"
+									id="name"
 									placeholder="nome completo"
+									value={data.name}
+									onChange={handleChange}
+									required
 								/>
+
 								<input
 									type="text"
 									name="email"
+									id="email"
 									placeholder="username@email.com"
+									value={data.email}
+									onChange={handleChange}
+									required
 								/>
 							</div>
 							<div className={style.mensagem}>
 								<textarea
 									name="message"
+									id="message"
 									placeholder="escreva sua mensagem..."
+									value={data.message}
+									onChange={handleChange}
+									required
 								></textarea>
 							</div>
 							<button className={style.buttonf} type="submit">
@@ -266,13 +308,15 @@ const Home: NextPage = () => {
 				</div>
 				<div className={style.linel}>
 					<p>
-						Lorem Ipsum is simply dummy text of the printing and
-						typesetting industry. Lorem Ipsum has been the industrys
-						standard dummy text ever since the 1500s, when an
-						unknown printer took a galley of type and scrambled it
-						to make a type specimen book. It has survived not only
-						five centuries, but also the leap into electronic
-						typesetting, remaining essentially unchanged.
+						A orbt é uma empresa recem chegada no mercado da
+						tecnologia, que vem buscando trazer web sites e
+						aplicativos com um design simples, bonito e que retrate
+						a empresa e ao mesmo tempo um site completo, rápido e
+						responsivo, com o SEO configurado e tudo mais que você
+						possa ter direito. Trabalhamos para optimizar e melhorar
+						a experiência da empresa com as novidades, sempre
+						buscamos inovar e sempre manter nossos projetos
+						atualizados e com ótima funcionalidade e velocidade.
 					</p>
 				</div>
 
@@ -283,6 +327,7 @@ const Home: NextPage = () => {
 							alt="facebook"
 							width="30"
 							height="30"
+							id="image"
 						/>
 					</a>
 					<a href="">
@@ -308,9 +353,53 @@ const Home: NextPage = () => {
 					Copyright © 2020, Todos direitos reservados
 					<a href=""> Orbt</a>
 				</span>
+
+				<div>
+					<button className={style.float} onClick={onClick}>
+						{whatsapp && <Text />}
+						<img src="whatsapp.png" alt="Whatsapp" height="50" />
+					</button>
+				</div>
 			</div>
 		</>
 	)
 }
 
+const Text = () => (
+	<div className={style.whatfloat}>
+		<a href="https://api.whatsapp.com/send?phone=5516996135250&text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20or%C3%A7amento">
+			<img src="601.png" alt="Abner" height="80" />
+			<p>
+				Abner Ananias <br />
+				(16) 99613-5250
+			</p>
+		</a>
+		<a href="https://api.whatsapp.com/send?phone=5516994009055&text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20or%C3%A7amento">
+			<img src="602.png" alt="Gabriel" height="80" />
+			<p>
+				Gabriel Laroca <br />
+				(16) 99400-9055
+			</p>
+		</a>
+		<a href="https://api.whatsapp.com/send?phone=5516997570850&text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20or%C3%A7amento">
+			<img src="603.png" alt="Lucas" height="80" />
+			<p>
+				Lucas Lima <br />
+				(16) 99757-0850
+			</p>
+		</a>
+	</div>
+)
+
 export default Home
+function setData(arg0: (oldData: any) => any) {
+	throw new Error('Function not implemented.')
+}
+function debounce(arg0: (value: any) => Promise<void>, arg1: number) {}
+function setShowText(arg0: boolean) {
+	throw new Error('Function not implemented.')
+}
+
+function setWhatsapp(arg0: boolean): void {
+	throw new Error('Function not implemented.')
+}
