@@ -294,16 +294,16 @@ const Home: NextPage = () => {
 			<footer className={style.footer}>
 				<div className={style.navf}>
 					<li>
-						<a href="">Home</a>
+						<a href="#home">Home</a>
 					</li>
 					<li>
-						<a href="">Sobre</a>
+						<a href="#sobre">Sobre</a>
 					</li>
 					<li>
-						<a href="">Planos</a>
+						<a href="#planos">Planos</a>
 					</li>
 					<li>
-						<a href="">Contato</a>
+						<a href="#contato">Contato</a>
 					</li>
 				</div>
 				<div className={style.linel}>
@@ -321,7 +321,7 @@ const Home: NextPage = () => {
 				</div>
 
 				<div className={style.redes}>
-					<a href="">
+					<a href="https://www.facebook.com/orbtofc">
 						<Image
 							src={facebook}
 							alt="facebook"
@@ -330,7 +330,7 @@ const Home: NextPage = () => {
 							id="image"
 						/>
 					</a>
-					<a href="">
+					<a href="https://instagram.com/orbt.com.br">
 						<Image
 							src={instagram}
 							alt="Instagram"
@@ -338,7 +338,7 @@ const Home: NextPage = () => {
 							height="30"
 						/>
 					</a>
-					<a href="">
+					<a href="https://github.com/orbt2001">
 						<Image
 							src={github}
 							alt="Github"
