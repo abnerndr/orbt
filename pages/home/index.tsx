@@ -374,13 +374,6 @@ const Text = () => (
 				(16) 99613-5250
 			</p>
 		</a>
-		<a href="https://api.whatsapp.com/send?phone=5516994009055&text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20or%C3%A7amento">
-			<img src="602.png" alt="Gabriel" height="80" />
-			<p>
-				Gabriel Laroca <br />
-				(16) 99400-9055
-			</p>
-		</a>
 		<a href="https://api.whatsapp.com/send?phone=5516997570850&text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20or%C3%A7amento">
 			<img src="603.png" alt="Lucas" height="80" />
 			<p>
